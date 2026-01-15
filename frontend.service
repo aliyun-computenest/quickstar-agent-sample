@@ -1,0 +1,18 @@
+[Unit]
+Description=Quickstar Agent Frontend Service
+After=network.target backend.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/code_deploy_application/frontend
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="NODE_ENV=production"
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

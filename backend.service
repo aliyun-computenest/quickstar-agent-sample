@@ -1,0 +1,16 @@
+[Unit]
+Description=Quickstar Agent Backend Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/code_deploy_application/backend
+ExecStart=python3 /root/code_deploy_application/backend/async_quart_service.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
